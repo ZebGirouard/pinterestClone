@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html ng-app='stockChartApp' ng-controller='stockController'>
+
+	<head>
+		<title>What's the market doing? stockChart3000: a nightlife app built with Clementine.js</title>
+		
+		<link href="/public/css/main.css" rel="stylesheet" type="text/css">
+	</head>
+
+	<header>
+		<div>
+			<p>Welcome to stockChart3000, your source for stock info! See what's going on in the market.</p>
+		</div>
+	</header>
+
+	<body>
+		<div id="stockChart"></div>
+		<div class="col-md-12 stockContainer">
+			<div class="col-md-2 stockBlock" ng-repeat="stock in stockObjects">
+				<h3>-{{stock.name}}- <button type="button" class="close" ng-click="removeStock(stock.name)">×</button></h3>
+			</div>
+		</div>
+		<div class="container clearFix">
+			<form class="btn-container" ng-submit="addStock(stockName)">
+				<input type="text" class="text-box" name="stockName" ng-model="stockName" placeholder="MSFT" required>
+				<input class="btn btn-add" type="submit" value="Add">
+			</form>
+		</div>
+		<script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js'></script>
+		<script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+		<script src="https://code.highcharts.com/stock/highstock.js"></script>
+		<script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+		<script type="text/javascript" src="controllers/stockController.client.js"></script>
+	</body>
+	<footer>
+		<p class="container">Venue information provided by the Yelp API.</p>
+	</footer>
+</html>

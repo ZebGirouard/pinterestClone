@@ -1,0 +1,204 @@
+/********* Fonts **********/
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Roboto'), local('Roboto-Regular'), url('../fonts/Roboto-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  src: local('Roboto Medium'), local('Roboto-Medium'), url('../fonts/Roboto-Medium.ttf') format('truetype');
+}
+
+/****** Main Styling ******/
+
+body {
+	font-family: 'Roboto', sans-serif;
+	font-size: 16px;
+	margin: 0;
+	padding: 0;
+}
+
+header, footer {
+	color: #00BCD4;
+	margin: 0 0 14px 0;
+	text-align: center;
+}
+
+p {
+	margin: 8px 0 0 0;
+}
+
+.container p {
+	text-align: center;
+	padding: 0;
+}
+
+h1 {
+	text-align: left;
+}
+
+/****** Header Styling ******/
+
+header p {
+	margin: 16px 0 5px 0;
+}
+
+header a ~ p {
+	margin: 0;
+	padding: 0;
+	display: inline;
+	color: #ECEFF1;
+}
+
+#display-name {
+	font-weight: 400;
+}
+
+/****** Login Styling ******/
+
+.login {
+	margin: 86px auto 0 auto;
+	text-align: center;
+}
+
+#login-btn {
+	width: 225px;
+	padding: 7px 5px;
+}
+
+.btn p {
+	margin: 8px 0 0 0;
+	padding: 0;
+}
+
+.btn > img {
+	float: left;
+	margin-left: 10px
+}
+
+/****** Logo Div Styling ******/
+
+img {
+	margin: 0 auto;
+	display: block;
+	border-radius: 5%;
+}
+
+.clementine-text { /* Styling for the Clementine.js text */
+	padding: 0;
+	margin: -25px 0 0 0;
+	font-weight: 500;
+	font-size: 60px;
+	color: #FFA000;
+}
+
+/****** Click Styling ******/
+
+.btn-container {	/* Styling for the div that contains the buttons */
+	margin: 10px auto 0 auto;
+	padding: 10px;
+	text-align: center;
+}
+
+.btn {	/* Styling for buttons */
+	margin: 0 8px;
+	color: white;
+	background-color: #00BCD4;
+	display: inline-block;
+	border: 0;
+	font-size: 14px;
+	border-radius: 3px;
+	padding: 10px 5px;
+	width: 100px;
+	font-weight: 500;
+}
+
+.btn:focus {	/* Remove outline when hovering over button */
+	outline: none;
+}
+
+.btn:active {	/* Scale the button down by 10% when clicking on button */
+	transform: scale(0.9, 0.9);
+	-webkit-transform: scale(0.9, 0.9);
+	-moz-transform: scale(0.9, 0.9);
+}
+
+.btn-delete {	/* Styling for delete button */
+	background-color: #ECEFF1;
+	color: #212121;
+}
+
+#click-nbr {
+	font-weight: 400;
+}
+
+/* Text Box */
+.text-box {	/* Styling for buttons */
+	margin: 0 8px;
+	display: inline-block;
+	font-size: 14px;
+	border-radius: 3px;
+	padding: 10px 5px;
+	font-weight: 500;
+}
+
+#menu-divide {
+	color: #FFFFFF;
+	display: inline;
+	margin: 0;
+}
+
+/* Styling for Reviews */
+
+.review p {
+	font-style: italic;
+	text-align: left;
+	text-indent: 5px;
+}
+
+/* Stying for Tables */
+
+td {
+	border: 2px solid black;
+}
+
+/* Styling for tiles in container */
+
+.col-lg-1,.col-lg-10,.col-lg-11,.col-lg-12,.col-lg-2,.col-lg-3,.col-lg-4,.col-lg-5,.col-lg-6,.col-lg-7,.col-lg-8,.col-lg-9,.col-md-1,.col-md-10,.col-md-11,.col-md-12,.col-md-2,.col-md-3,.col-md-4,.col-md-5,.col-md-6,.col-md-7,.col-md-8,.col-md-9,.col-sm-1,.col-sm-10,.col-sm-11,.col-sm-12,.col-sm-2,.col-sm-3,.col-sm-4,.col-sm-5,.col-sm-6,.col-sm-7,.col-sm-8,.col-sm-9,.col-xs-1,.col-xs-10,.col-xs-11,.col-xs-12,.col-xs-2,.col-xs-3,.col-xs-4,.col-xs-5,.col-xs-6,.col-xs-7,.col-xs-8,.col-xs-9 {
+    position: relative;
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px
+}
+
+.col-md-12 {
+	width: 100%;
+}
+
+.col-md-2 {
+	width: 16%;
+	float: left;
+}
+.stockContainer {
+    padding-top: 10px;
+    box-sizing: border-box;
+}
+
+.stockContainer .stockBlock {
+    border: 1px solid #bbb;
+    border-left-width: 5px;
+    background-color: #fff;
+    padding: 10px;
+    margin-right: 19px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+.clearFix {
+	clear: both;
+}
