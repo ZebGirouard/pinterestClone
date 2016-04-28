@@ -184,12 +184,12 @@ td {
 	width: 16%;
 	float: left;
 }
-.stockContainer {
+.pinsContainer {
     padding-top: 10px;
     box-sizing: border-box;
 }
 
-.stockContainer .stockBlock {
+.pinsContainer .pinBlock {
     border: 1px solid #bbb;
     border-left-width: 5px;
     background-color: #fff;

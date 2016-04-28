@@ -39,7 +39,7 @@ io = sio.listen(server);
 io.sockets.on('connection', function (socket) {
 
   socket.on('clientCall', function (data) {
-  	io.sockets.emit('serverResponse', { message: 'Stocks updated! and ' + process.env.PORT });
+  	io.sockets.emit('serverResponse', { message: 'Pins updated!' });
   });
 
 });	

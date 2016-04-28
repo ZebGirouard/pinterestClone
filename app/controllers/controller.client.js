@@ -1,8 +1,19 @@
 'use strict';
 
 (function() {
-    var app = angular.module('stockChartApp', []);
-        app.controller('stockController', ['$scope', '$http', '$location', function ($scope, $http, $location) {
+    var app = angular.module('pinterestApp', []);
+        app.controller('pinterestController', ['$scope', '$http', '$location', function ($scope, $http, $location) {
+            $scope.addPin = function(pinName) {
+                console.log(pinName);
+                $http.post('/api/addPin/'+pinName)
+                .then(function(response) {
+                    console.log(response);
+                });
+            };
+            
+            $scope.pins = {};
+            
+            /*
             var socket = io.connect($location.origin);
             socket.on("serverResponse", function(data) {
                 if(data.message.indexOf("updated") > -1) {
@@ -25,6 +36,7 @@
                      * Create the chart when all data is loaded
                      * @returns {undefined}
                      */
+                     /*
                     function createChart() {
                 
                         $('#stockChart').highcharts('StockChart', {
@@ -117,6 +129,6 @@
                   console.log(err);
               });
             };
-            
+            */
         }]);
 })();

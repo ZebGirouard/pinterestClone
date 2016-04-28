@@ -1,9 +1,15 @@
 'use strict';
 
-var Stocks = require('../models/stocks.js');
+var Pins = require('../models/pins.js');
 var https = require('https');
 
-function StockHandler () {
+function PinHandler () {
+	
+	this.addPin = function (req, res) {
+		console.log(req.params.pinName);
+		res.json("Pin saved!");
+	};
+	/*
 	this.removeStock = function (req, res) {
 		var symbol = req.params.symbol.toLowerCase();
 		Stocks.find({stock_name: symbol}).remove().exec(function (err, result) {
@@ -65,6 +71,7 @@ function StockHandler () {
 				res.json(result);
 			});
 	};
+	*/
 }
 
-module.exports = StockHandler;
+module.exports = PinHandler;
