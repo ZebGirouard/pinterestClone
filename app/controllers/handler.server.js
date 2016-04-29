@@ -15,7 +15,7 @@ function PinHandler () {
 				res.json("Pin image already in wall.");						
 			}
 			else {
-				var pin = new Pins({title: req.body.title, url: req.body.url});
+				var pin = new Pins({title: req.body.title, url: req.body.url, creator: req.body.user});
 				pin.save(function (err, data) {
 					if (err) throw(err);
 					else res.json('Saved : ' + data );

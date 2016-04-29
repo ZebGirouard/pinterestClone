@@ -1,6 +1,6 @@
 <div class="col-md-12 pinsContainer" masonry>
 	<div class="col-md-2 pinBlock masonry-brick" ng-repeat="pin in pins">
-		<h3>-{{pin.title}}- <button type="button" class="close" ng-click="removePin(pin)">×</button></h3>
+		<h3>-{{pin.title}}-</h3>
 		<img ng-src="{{pin.url}}" on-error="/public/img/camera-logo.png" class="pinImage"/>
 	</div>
 </div>

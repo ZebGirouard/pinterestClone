@@ -32,7 +32,7 @@
 
     app.factory('Authentication', function($http, $window) {
         var saveStatus = function () {
-            return $http.get('/api/isLoggedIn');
+            return $http.get('/api/authInfo');
         };
     
         var getStatus = function () {
@@ -53,24 +53,18 @@
           }
         };
     
-        /*var currentUser = function() {
+        var getCurrentUser = function() {
           if(isLoggedIn()){
-            var token = getToken();
-            var payload = token.split('.')[1];
-            payload = $window.atob(payload);
-            payload = JSON.parse(payload);
-            return {
-              email : payload.email
-            };
+            return $window.localStorage['current-user'];
           }
-        }; */
+        };
         
         return {
           saveStatus : saveStatus,
           getStatus : getStatus,
           logout : logout,
-          isLoggedIn: isLoggedIn
-          //currentUser: currentUser
+          isLoggedIn: isLoggedIn,
+          getCurrentUser: getCurrentUser
         };
     });
         
@@ -84,20 +78,25 @@
             $scope.getStatus = function() {
                 Authentication.saveStatus()
                 .then(function (response) {
-                    $window.localStorage['mean-status'] = response.data;  
+                    $window.localStorage['mean-status'] = response.data.status;  
+                    $window.localStorage['current-user'] = response.data.user;                    
                     console.log(response);
                     $scope.isLoggedIn = Authentication.isLoggedIn();
-                    console.log($scope.isLoggedIn);                
+                    $scope.currentUser = Authentication.getCurrentUser();
+                    console.log($scope.isLoggedIn); 
+                    console.log($scope.currentUser);
                 });
             };
             
             $scope.addPin = function(pin) {
                 console.log("Title: " + pin.title);
                 console.log("URL: " + pin.url);
+                pin.user = $scope.currentUser;
                 $http.post('/api/addPin', pin)
                 .then(function(response) {
                     console.log(response);
                 });
+                $window.location.reload();
             };
 
             $scope.removePin = function(pin) {
@@ -110,6 +109,7 @@
               .catch(function(err) {
                   console.log(err);
               });
+              $window.location.reload();
             };
             
             $scope.getPins = function() {

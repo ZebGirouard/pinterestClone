@@ -56,12 +56,12 @@ module.exports = function (app, passport) {
 	  res.redirect('/');
 	});	
 	
-	app.get('/api/isLoggedIn', function(req, res) {
+	app.get('/api/authInfo', function(req, res) {
 		if (req.isAuthenticated()) {
-			res.json("Authenticated!");
+			res.json({user: req.user.twitter.username, status: "Authenticated!"});
 		}
 		else {
-			res.json("Not authenticated!");
+			res.json({status: "Not authenticated!"});
 		}
 	});
 };
