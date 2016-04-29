@@ -29,25 +29,66 @@
               requireBase: false
             });
         }]);
+
+    app.factory('Authentication', function($http, $window) {
+        var saveStatus = function () {
+            return $http.get('/api/isLoggedIn');
+        };
+    
+        var getStatus = function () {
+          return $window.localStorage['mean-status'];
+        };
+    
+        var logout = function() {
+          $window.localStorage.removeItem('mean-status');
+        };
+    
+        var isLoggedIn = function() {
+          var status = getStatus();
         
-        app.controller('pinterestController', ['$scope', '$http', '$location', function ($scope, $http, $location) {
+          if(status === "Authenticated!"){
+              return true;
+          } else {
+            return false;
+          }
+        };
+    
+        /*var currentUser = function() {
+          if(isLoggedIn()){
+            var token = getToken();
+            var payload = token.split('.')[1];
+            payload = $window.atob(payload);
+            payload = JSON.parse(payload);
+            return {
+              email : payload.email
+            };
+          }
+        }; */
+        
+        return {
+          saveStatus : saveStatus,
+          getStatus : getStatus,
+          logout : logout,
+          isLoggedIn: isLoggedIn
+          //currentUser: currentUser
+        };
+    });
+        
+        app.controller('pinterestController', function ($scope, $http, $location, $window, Authentication) {
             
-            $scope.init = function() {
-                $scope.getPins();
-                /*$(document).ready( function() {
-                
-                    var elem = document.querySelector('.pinsContainer');
-                    console.log(elem);
-                    var msnry = new Masonry( elem, {
-                      // options
-                      itemSelector: '.pinBlock'
-                    });   
-                    
-                    $('.pinsContainer').masonry({
-                      // options
-                      itemSelector: '.pinBlock'
-                    });                    
-                });*/
+            $scope.initPins = function() {
+              $scope.getStatus();
+              $scope.getPins();
+            };
+            
+            $scope.getStatus = function() {
+                Authentication.saveStatus()
+                .then(function (response) {
+                    $window.localStorage['mean-status'] = response.data;  
+                    console.log(response);
+                    $scope.isLoggedIn = Authentication.isLoggedIn();
+                    console.log($scope.isLoggedIn);                
+                });
             };
             
             $scope.addPin = function(pin) {
@@ -86,6 +127,16 @@
                   console.log(response);
               });
             };
+            
+            $scope.logOut = function() {
+                Authentication.logout();
+                $http.get('/signout')
+                .then(function(response) {
+                    console.log(response);
+                    $scope.getStatus();
+                });
+            };
+            
             /*
             var socket = io.connect($location.origin);
             socket.on("serverResponse", function(data) {
@@ -94,5 +145,5 @@
                 }
             });
             */
-        }]);
+        });
 })();

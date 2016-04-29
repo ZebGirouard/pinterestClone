@@ -54,6 +54,14 @@ module.exports = function (app, passport) {
 	app.get('/signout', function(req, res) {
 	  req.logout();
 	  res.redirect('/');
-	});		
-
+	});	
+	
+	app.get('/api/isLoggedIn', function(req, res) {
+		if (req.isAuthenticated()) {
+			res.json("Authenticated!");
+		}
+		else {
+			res.json("Not authenticated!");
+		}
+	});
 };
