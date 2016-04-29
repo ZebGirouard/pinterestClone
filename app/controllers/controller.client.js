@@ -1,7 +1,7 @@
 'use strict';
 
 (function() {
-    var app = angular.module('pinterestApp', ['ngRoute']);
+    var app = angular.module('pinterestApp', ['ngRoute', 'wu.masonry']);
         app.directive('onError', function() {
           return {
             restrict:'A',
@@ -34,6 +34,20 @@
             
             $scope.init = function() {
                 $scope.getPins();
+                /*$(document).ready( function() {
+                
+                    var elem = document.querySelector('.pinsContainer');
+                    console.log(elem);
+                    var msnry = new Masonry( elem, {
+                      // options
+                      itemSelector: '.pinBlock'
+                    });   
+                    
+                    $('.pinsContainer').masonry({
+                      // options
+                      itemSelector: '.pinBlock'
+                    });                    
+                });*/
             };
             
             $scope.addPin = function(pin) {

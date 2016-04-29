@@ -24,6 +24,7 @@
   "author": "Blake Johnston",
   "license": "MIT",
   "dependencies": {
+    "angular-masonry": "^0.16.0",
     "body-parser": "^1.15.0",
     "dotenv": "^1.2.0",
     "express": "^4.13.3",
