@@ -5,11 +5,14 @@ var express = require('express'),
 	mongoose = require('mongoose'),
 	session = require('express-session'),
 	http = require('http'),
-	sio = require('socket.io');
+	sio = require('socket.io'),
+	bodyParser = require('body-parser'),
+	passport = require('passport');
 
 var app = express();
 
 require('dotenv').load();
+require('./app/config/passport')(passport);
 
 var mongoURI = process.env.MONGODB_URI || process.env.MONGO_URI;
 
@@ -19,13 +22,18 @@ app.use('/controllers', express.static(process.cwd() + '/app/controllers'));
 app.use('/public', express.static(process.cwd() + '/public'));
 app.use('/common', express.static(process.cwd() + '/app/common'));
 
+// Configuring Passport
 app.use(session({
 	secret: 'secretClementine',
 	resave: false,
 	saveUninitialized: true
 }));
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
 
-routes(app);
+routes(app, passport);
 
 var port = process.env.PORT || 8080;	
 // create http server

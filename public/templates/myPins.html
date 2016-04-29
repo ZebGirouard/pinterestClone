@@ -1,0 +1,16 @@
+<div ng-init="getBooks()">
+    <div class="col-md-12 pinsContainer">
+    	<div class="col-md-2 pinBlock" ng-repeat="pin in pins">
+    		<h3>-{{pin.title}}- <button type="button" class="close" ng-click="removePin(pin)">×</button></h3>
+    		<img ng-src="{{pin.url}}" on-error="/public/img/camera-logo.png" class="pinImage"/>
+    	</div>
+    <div class="container clearFix">
+        <hr>
+        <h3>Add Pin</h3>
+    	<form class="btn-container" ng-submit="addPin(pin)">
+    		Title: <input type="text" class="text-box" name="pinName" ng-model="pin.title" placeholder="Title Here" required>
+    		Pin URL: <input type="text" class="text-box" name="pinUrl" ng-model="pin.url" placeholder="Url Here" required>
+    		<input class="btn btn-add" type="submit" value="Add">
+    	</form>
+    </div>
+</div>

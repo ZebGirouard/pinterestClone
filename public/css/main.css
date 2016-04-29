@@ -18,7 +18,7 @@
 
 body {
 	font-family: 'Roboto', sans-serif;
-	font-size: 16px;
+	font-size: 20px;
 	margin: 0;
 	padding: 0;
 }
@@ -33,7 +33,7 @@ p {
 	margin: 8px 0 0 0;
 }
 
-.container p {
+.container {
 	text-align: center;
 	padding: 0;
 }
@@ -128,7 +128,7 @@ img {
 	-moz-transform: scale(0.9, 0.9);
 }
 
-.btn-delete {	/* Styling for delete button */
+.btn-add {	/* Styling for delete button */
 	background-color: #ECEFF1;
 	color: #212121;
 }
@@ -201,4 +201,170 @@ td {
 
 .clearFix {
 	clear: both;
+}
+
+.logo {
+	display: inline-block;
+	width: 20px;
+}
+
+.pinImage {
+	width: 100%;
+}
+
+.navbar {
+  border-radius: 4px;
+  position: relative;
+  min-height: 50px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+}
+
+.navbar > .container .navbar-brand,
+.navbar > .container-fluid .navbar-brand {
+  margin-left: -15px;
+}
+
+.navbar-fixed-top .navbar-collapse,
+.navbar-static-top .navbar-collapse,
+.navbar-fixed-bottom .navbar-collapse {
+  padding-right: 0;
+  padding-left: 0;
+}
+  
+.navbar-fixed-top .navbar-collapse,
+.navbar-fixed-bottom .navbar-collapse {
+  max-height: 340px;
+}  
+
+.navbar-fixed-top,
+.navbar-fixed-bottom {
+  border-radius: 0;
+  position: fixed;
+  right: 0;
+  left: 0;
+  z-index: 1030;
+}
+
+.navbar-fixed-top {
+  top: 0;
+  border-width: 0 0 1px;
+}
+
+.navbar-inverse {
+  background-color: #222;
+  border-color: #080808;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+  color: #9d9d9d;
+}
+
+.navbar-inverse .navbar-nav > li > a:hover,
+.navbar-inverse .navbar-nav > li > a:focus {
+  color: #fff;
+  background-color: transparent;
+}
+
+.navbar-inverse .navbar-nav > .active > a,
+.navbar-inverse .navbar-nav > .active > a:hover,
+.navbar-inverse .navbar-nav > .active > a:focus {
+  color: #fff;
+  background-color: #080808;
+}
+
+.navbar-inverse .navbar-nav > .open > a,
+.navbar-inverse .navbar-nav > .open > a:hover,
+.navbar-inverse .navbar-nav > .open > a:focus {
+  color: #fff;
+  background-color: #080808;
+}
+
+.pull-left {
+  float: left !important;
+}
+
+.pull-right {
+  float: right !important;
+}
+
+.nav {
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+}
+
+.nav > li {
+  position: relative;
+  display: block;
+}
+
+.nav > li > a {
+  position: relative;
+  display: block;
+  padding: 10px 15px;
+}
+
+.nav > li > a:hover,
+.nav > li > a:focus {
+  text-decoration: none;
+  background-color: #eee;
+}
+
+.nav .open > a,
+.nav .open > a:hover,
+.nav .open > a:focus {
+  background-color: #eee;
+  border-color: #337ab7;
+}
+
+.navbar-nav {
+  margin: 7.5px -15px;
+  float: left;
+  margin: 0;
+}
+
+.navbar-nav > li > a {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  line-height: 20px;
+}
+
+.navbar-nav > li {
+  float: left;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+  color: #9d9d9d;
+}
+
+.navbar-inverse .navbar-nav > li > a:hover,
+.navbar-inverse .navbar-nav > li > a:focus {
+  color: #fff;
+  background-color: transparent;
+}
+
+.navbar-inverse .navbar-nav > .active > a,
+.navbar-inverse .navbar-nav > .active > a:hover,
+.navbar-inverse .navbar-nav > .active > a:focus {
+  color: #fff;
+  background-color: #080808;
+}
+
+.navbar-inverse .navbar-nav > .open > a,
+.navbar-inverse .navbar-nav > .open > a:hover,
+.navbar-inverse .navbar-nav > .open > a:focus {
+  color: #fff;
+  background-color: #080808;
+}
+
+hr {
+  height: 0;
+  -webkit-box-sizing: content-box;
+     -moz-box-sizing: content-box;
+          box-sizing: content-box;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: 0;
+  border-top: 1px solid #eee;
 }

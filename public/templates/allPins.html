@@ -1,0 +1,6 @@
+<div class="col-md-12 pinsContainer">
+	<div class="col-md-2 pinBlock" ng-repeat="pin in pins">
+		<h3>-{{pin.title}}- <button type="button" class="close" ng-click="removePin(pin)">×</button></h3>
+		<img ng-src="{{pin.url}}" on-error="/public/img/camera-logo.png" class="pinImage"/>
+	</div>
+</div>

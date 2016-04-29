@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html ng-app='pinterestApp' ng-controller='pinterestController'>
+<html ng-app='pinterestApp' ng-controller='pinterestController' ng-init="init()">
 
 	<head>
 		<title>Pin the Terest on the Donkey</title>
@@ -9,29 +9,33 @@
 	</head>
 
 	<header>
-		<div>
-			<p>Welcome to Pin the Terest on the Donkey, your favorite Pinterest clone!</p>
-		</div>
+		<div class="container">
+	        <div class="navbar navbar-fixed-top navbar-inverse">
+				<div class="pull-left">
+					<p>Welcome to Pin the Terest on the Donkey, your favorite Pinterest clone!</p>
+				</div>	          	
+	            <div class="pull-right">
+	              <ul class="nav navbar-nav">
+	                <li><a href='/'>All Pins</a></li>
+	                <li><a href='/myPins'>My Pins</a></li>
+	                <li ng-hide="isLoggedIn"><a href='/login/twitter' target="_self"><img src="/public/img/twitter-logo.png" class="logo" alt="Twitter Logo"/>Twitter Login<img src="/public/img/twitter-logo.png" class="logo" alt="Twitter Logo"/></a></li>
+	                <li ng-show="isLoggedIn"><a ng-click="logOut()">Log Out</a></li>
+	                <li><a href="http://codepen.io/ZebGirouard/full/YXbYwb/" class="brand">by Zeb Girouard</a></li>
+	              </ul>
+	            </div>
+	        </div>	
+        </div>		
 	</header>
 
 	<body>
-		<div class="col-md-12 pinsContainer">
-			<div class="col-md-2 pinBlock" ng-repeat="pin in pins">
-				<h3>-{{pin.name}}- <button type="button" class="close" ng-click="removePin(pin.name)">×</button></h3>
-			</div>
-		</div>
-		<div class="container clearFix">
-			<form class="btn-container" ng-submit="addPin(pinName)">
-				<input type="text" class="text-box" name="pinName" ng-model="pinName" placeholder="Pin Here" required>
-				<input class="btn btn-add" type="submit" value="Add">
-			</form>
-		</div>
-		<script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js'></script>
+		<div ng-view>
+		<script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js'></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-route.js"></script>
 		<script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
 		<script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
 		<script type="text/javascript" src="controllers/controller.client.js"></script>
 	</body>
 	<footer>
-		<p class="container">UI designed with help from MasonJS.</p>
+		<p class="container">UI designed with help from MasonryJS.</p>
 	</footer>
 </html>
